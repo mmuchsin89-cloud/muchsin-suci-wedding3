@@ -2,6 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const akadDate = new Date('2026-04-14T09:00:00');
 
+// Updated coordinates:
+const akadCoords = { lat: -0.412915, lng: 100.072266 };
+const resepsiCoords = { lat: -0.6375711, lng: 100.1322098 };
+
 export default function WeddingInvite() {
   const [open, setOpen] = useState(false);
   const audioRef = useRef(null);
@@ -103,13 +107,13 @@ export default function WeddingInvite() {
               <h3>Akad Nikah</h3>
               <p style={{marginTop:6}}>Selasa, 14 April 2026</p>
               <p style={{marginTop:6}}>Jl. Raya Malai, Kampung Ingu, Kecamatan Sungai Geringging, Kabupaten Padang Pariaman</p>
-              <p style={{marginTop:8}}><a href="https://www.google.com/maps/search/?api=1&query=Jl.+Raya+Malai,+Kampung+Ingu,+Sungai+Geringging,+Padang+Pariaman" target="_blank" rel="noreferrer">Lihat di Google Maps</a></p>
+              <p style={{marginTop:8}}><a href={`https://www.google.com/maps?q=${akadCoords.lat},${akadCoords.lng}`} target="_blank" rel="noreferrer">Lihat di Google Maps</a></p>
             </div>
             <div className="card-small">
               <h3>Resepsi</h3>
               <p style={{marginTop:6}}>Kamis, 16 April 2026</p>
               <p style={{marginTop:6}}>Jl. H. Agus Salim No. 48, Kel. Jalan Baru, Kec. Pariaman Tengah, Kota Pariaman</p>
-              <p style={{marginTop:8}}><a href="https://www.google.com/maps/search/?api=1&query=Jl.+H.+Agus+Salim+No.+48,+Kelurahan+Jalan+Baru,+Pariaman+Tengah,+Pariaman" target="_blank" rel="noreferrer">Lihat di Google Maps</a></p>
+              <p style={{marginTop:8}}><a href={`https://www.google.com/maps?q=${resepsiCoords.lat},${resepsiCoords.lng}`} target="_blank" rel="noreferrer">Lihat di Google Maps</a></p>
             </div>
           </div>
 
@@ -117,13 +121,15 @@ export default function WeddingInvite() {
             <div>
               <div style={{padding:10,background:'#fff',borderRadius:8}}>
                 <h4 style={{margin:0,color:'#8b5e3c'}}>Peta Lokasi (Akad)</h4>
-                <iframe title="map-akad" className="maps" src="https://www.google.com/maps?q=-0.6375711,100.1322098&z=15&output=embed"></iframe>
+                <iframe title="map-akad" className="maps" src={`https://www.google.com/maps?q=${akadCoords.lat},${akadCoords.lng}&z=16&output=embed`}></iframe>
+                <p style={{marginTop:8,color:'#6f4a37'}}>Lokasi Akad – Jl. Raya Malai, Kampung Ingu, Kecamatan Sungai Geringging, Kabupaten Padang Pariaman</p>
               </div>
             </div>
             <div>
               <div style={{padding:10,background:'#fff',borderRadius:8}}>
                 <h4 style={{margin:0,color:'#8b5e3c'}}>Peta Lokasi (Resepsi)</h4>
-                <iframe title="map-resepsi" className="maps" src="https://www.google.com/maps?q=Jl.+H.+Agus+Salim+No.+48+Pariaman&z=15&output=embed"></iframe>
+                <iframe title="map-resepsi" className="maps" src={`https://www.google.com/maps?q=${resepsiCoords.lat},${resepsiCoords.lng}&z=16&output=embed`}></iframe>
+                <p style={{marginTop:8,color:'#6f4a37'}}>Lokasi Resepsi – Jl. H. Agus Salim No. 48, Kel. Jalan Baru, Kecamatan Pariaman Tengah, Kota Pariaman</p>
               </div>
             </div>
           </div>
